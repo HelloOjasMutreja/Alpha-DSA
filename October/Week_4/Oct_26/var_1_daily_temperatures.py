@@ -1,22 +1,14 @@
 def next_greater_element(temps):
 
-    stack = []
-    next_greater = {}
-
-    for i in range(len(temps)):
-        while len(stack) > 0 and temps[i] > temps[stack[-1]]:
-            next_greater[stack[-1]] = temps[i]
-            stack.pop()    
-        stack.append(i)
-        print("i =", i, "stack =", stack, "dict =", next_greater)
-    
+    stack = []    
     result = [0] * len(temps)
 
     for i in range(len(temps)):
-        if temps[i] in next_greater:
-            result.append(next_greater[temps[stack[i]]])
-        else:
-            result.append(-1)
+        while len(stack) > 0 and temps[i] > temps[stack[-1]]:
+            j = stack.pop()
+            result[j] = i - j
+        stack.append(i)
+        print("i =", i, "stack =", stack)
 
     return result
 
