@@ -16,8 +16,6 @@ def fib_memo(n, memo):
     memo[n] = fib_memo(n-1, memo) + fib_memo(n-2, memo)
     return memo[n]
 
-
-
 def fib_loop(n):
     result = 0
 
@@ -32,9 +30,7 @@ def fib_loop(n):
         for i in range(1, n+1):
             a, b = b, (a+b)
         return a
-
-
-
+    
 tests = [
     (0, 0),
     (1, 1),
