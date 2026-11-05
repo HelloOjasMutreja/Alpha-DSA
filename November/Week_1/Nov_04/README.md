@@ -1,0 +1,5 @@
+# Day 04: Recursion by division (Nov 04)
+
+| # | Problem | Role | Approach | Time | Space | Edge case I missed |
+|---|---------|------|----------|------|-------|--------------------|
+| 1 | [Power of Three](power_of_three.py) | Primary | Reject n <= 0. Then keep dividing n by 3 while it divides evenly, and a power of three ends at exactly 1, so the answer is n == 1. I also wrote it recursively (same idea on n // 3, with base cases for 1 and “not divisible by 3”) and with the largest-power trick: 3^19 = 1162261467 is the biggest power of three in 32-bit range, and since 3 is prime, n > 0 is a power of three exactly when it divides that number evenly. | Loop: O(log n) Recursion: O(log n) Largest Power: O(1) | Loop: O(1) Recursion: O(log n) Largest Power: O(1) | put the loop’s real one here, which was putting the n == 1 check inside a loop that stops at 1, so every power of three returned False. Also say that the first version of the max trick used a float loop that never ended. |
